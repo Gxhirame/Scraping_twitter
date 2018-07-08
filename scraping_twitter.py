@@ -2,6 +2,7 @@ import tweepy, os
 from dotenv import load_dotenv
 from os.path import join, dirname
 
+#パスの取得＆ロード（多分）
 dotenv_path=join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
