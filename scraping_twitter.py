@@ -15,3 +15,25 @@ access_token_secret=os.environ.get('ACCESS_TOKEN_SECRET')
 #認証情報を設定する
 auth=tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
+
+MyID=os.environ.get('MYACCOUNT')
+
+def main():
+    followers=api.followers(MyID)
+    followerN=0
+    for follower in followers:
+        print ('@',follower.screen_name)
+        followerN+=1
+    print ('◆◇◆◇◆◇◆◇Followerは',followerN,'◆◇◆◇◆◇◆◇')
+    
+    followings=api.friends(MyID)
+    followingN=0
+    for following in followings:
+        print(following.screen_name)
+        followingN+=1
+    print('◆◇◆◇◆◇◆◇Followingは',followingN,'◆◇◆◇◆◇◆◇')
+    
+    
+
+if __name__=='__main__':
+    main()
