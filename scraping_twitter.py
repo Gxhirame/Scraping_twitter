@@ -19,20 +19,16 @@ auth.set_access_token(access_token, access_token_secret)
 MyID=os.environ.get('MYACCOUNT')
 
 def main():
-    followers=api.followers(MyID)
-    followerN=0
-    for follower in followers:
-        print ('@',follower.screen_name)
-        followerN+=1
-    print ('◆◇◆◇◆◇◆◇Followerは',followerN,'◆◇◆◇◆◇◆◇')
-    
-    followings=api.friends(MyID)
-    followingN=0
-    for following in followings:
-        print(following.screen_name)
-        followingN+=1
-    print('◆◇◆◇◆◇◆◇Followingは',followingN,'◆◇◆◇◆◇◆◇')
-    
+    num=0
+    id_list=[]
+    pages=[1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17]
+    for page in pages:
+        for tweet in api.user_timeline(MyID, count=200, page=page):
+            print('-----')
+            print(tweet.created_at)
+            print(tweet.text)
+            num=num+1
+    print(num,"ツイート表示しました。")
     
 
 if __name__=='__main__':
