@@ -15,6 +15,8 @@ access_token_secret=os.environ.get('ACCESS_TOKEN_SECRET')
 #認証情報を設定する
 auth=tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
+#APIインスタンスを作成
+api=tweepy.API(auth)
 
 MyID=os.environ.get('MYACCOUNT')
 
