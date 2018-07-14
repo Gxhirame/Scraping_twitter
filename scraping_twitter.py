@@ -18,14 +18,15 @@ auth.set_access_token(access_token, access_token_secret)
 #APIインスタンスを作成
 api=tweepy.API(auth)
 
-MyID=os.environ.get('MYACCOUNT')
+
 
 def main():
+    Account=input("Acount:@")
     num=0
     id_list=[]
     pages=[1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17]
     for page in pages:
-        for tweet in api.user_timeline(MyID, count=200, page=page):
+        for tweet in api.user_timeline(Account, count=200, page=page):
             print('-----')
             print(tweet.created_at)
             print(tweet.text)
