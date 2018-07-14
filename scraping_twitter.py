@@ -6,7 +6,7 @@ from os.path import join, dirname
 dotenv_path=join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-
+#.env.sampleから各値を取得する。
 consumer_key=os.environ.get('CONSUMER_KEY')
 consumer_secret=os.environ.get('CONSUMER_SECRET')
 access_token=os.environ.get('ACCESS_TOKEN')
@@ -21,6 +21,7 @@ api=tweepy.API(auth)
 
 
 def main():
+    #入力によりツイートを抽出するアカウントのID取得。
     Account=input("Acount:@")
     num=0
     id_list=[]
