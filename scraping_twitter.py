@@ -24,7 +24,6 @@ def main():
     #入力によりツイートを抽出するアカウントのID取得。
     Account=input("Acount:@")
     num=0
-    id_list=[]
     pages=[1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17]
     for page in pages:
         for tweet in api.user_timeline(Account, count=200, page=page):
